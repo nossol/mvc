@@ -2,5 +2,11 @@
 
 declare(strict_types=1);
 
+require 'Controllers/Foo.php';
 
-echo 'Hi';
+use mvc\Controllers\Foo;
+
+$foo = new Foo();
+
+$foo->doSomething();
+
