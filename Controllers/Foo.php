@@ -10,9 +10,9 @@ class Foo
 {
     public function doSomething()
     {
-        echo "Hi Foo!\n";
+        echo nl2br("Hi Foo!\n");
 
         $dt = new DateTime();
-        echo $dt->getTimestamp();
+        echo nl2br($dt->getTimestamp()."\n");
     }
 }
