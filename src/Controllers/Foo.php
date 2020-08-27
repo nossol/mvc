@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace mvc\Controllers;
+namespace App\Controllers;
 
 use DateTime;
 
