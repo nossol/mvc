@@ -7,13 +7,20 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 require 'vendor/autoload.php';
+require 'src/Models/bootstrap.php';
 
-use App\Controllers\Foo;
-use App\Controllers\Example;
+//use App\Controllers\Foo;
+//use App\Controllers\Example;
 
-$foo = new Foo();
-$foo->doSomething();
+//$foo = new Foo();
+//$foo->doSomething();
+//
+//$example = new Example();
+//$example->doSomethingElse();
 
-$example = new Example();
-$example->doSomethingElse();
+require Router::load('Routes.php')
+    ->direct(Request::uri());
+
+
+
 
