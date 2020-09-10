@@ -1,5 +1,7 @@
 <?php
 
+namespace App\core;
+
 class Router
 {
     protected $routes = [];
