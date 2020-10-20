@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MVC TRAINING</title>
+    <title>MVC TRAINING-Smarty</title>
 </head>
 <body>
 <nav>
@@ -12,8 +12,6 @@
         <li><a href="/about">About Page</a></li>
     </ul>
 </nav>
-<h1>FRUITS</h1>
-
 </body>
 </html>
 
