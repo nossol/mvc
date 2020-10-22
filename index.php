@@ -14,3 +14,4 @@ require 'src/core/Bootstrap.php';
 require Router::load('src/core/Routes.php')
     ->direct(Request::uri());
 
+
