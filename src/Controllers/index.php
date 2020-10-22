@@ -1,17 +1,36 @@
 <?php
 
-require('/mnt/c/mvc/src/smarty/Smarty/libs/Smarty.class.php');
-$smarty = new Smarty();
-
-$smarty->setTemplateDir('/mnt/c/mvc/src/smarty/templates');
-$smarty->setCompileDir('/mnt/c/mvc/src/smarty/templates_c');
-$smarty->setCacheDir('/mnt/c/mvc/src/smarty/cache');
-$smarty->setConfigDir('/mnt/c/mvc/src/smarty/configs');
-
-$smarty->assign('name', 'General McNugget');
-$smarty->display('index.tpl');
+namespace App\Controllers;
 
 
-//Controllers verweist/required auf Views bzw. templates
+class index implements Controller
+{
+    private \Smarty $smarty;
+    private string $template;
 
-//Controller Klasse für Seiten
+
+    public function __construct()
+    {
+
+        $this->template = 'index.tpl';
+
+        $this->smarty = new \Smarty();
+        $this->smarty->setTemplateDir('/mnt/c/mvc/src/smarty/templates');
+        $this->smarty->setCompileDir('/mnt/c/mvc/src/smarty/templates_c');
+        $this->smarty->setCacheDir('/mnt/c/mvc/src/smarty/cache');
+        $this->smarty->setConfigDir('/mnt/c/mvc/src/smarty/configs');
+
+        $this->smarty->assign('name', 'General McNugget');
+    }
+
+    public function action(): void
+    {
+        try {
+            $this->smarty->display($this->template);
+        } catch (\SmartyException $e) {
+        } catch (\Exception $e) {
+        }
+    }
+}
+
+

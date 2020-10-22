@@ -2,6 +2,8 @@
 
 namespace App\core;
 
+use Exception;
+
 class Router {
 
     protected $routes = [];

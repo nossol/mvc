@@ -1,12 +1,36 @@
 <?php
 
-require('/mnt/c/mvc/src/smarty/Smarty/libs/Smarty.class.php');
-$smarty = new Smarty();
+namespace App\Controllers;
 
-$smarty->setTemplateDir('/mnt/c/mvc/src/smarty/templates');
-$smarty->setCompileDir('/mnt/c/mvc/src/smarty/templates_c');
-$smarty->setCacheDir('/mnt/c/mvc/src/smarty/cache');
-$smarty->setConfigDir('/mnt/c/mvc/src/smarty/configs');
 
-$smarty->assign('name', 'DOOM GUY');
-$smarty->display('fruits.tpl');
+class fruits implements Controller
+{
+    private \Smarty $smarty;
+    private string $template;
+
+
+    public function __construct()
+    {
+
+        $this->template = 'fruits.tpl';
+
+        $this->smarty = new \Smarty();
+        $this->smarty->setTemplateDir('/mnt/c/mvc/src/smarty/templates');
+        $this->smarty->setCompileDir('/mnt/c/mvc/src/smarty/templates_c');
+        $this->smarty->setCacheDir('/mnt/c/mvc/src/smarty/cache');
+        $this->smarty->setConfigDir('/mnt/c/mvc/src/smarty/configs');
+
+        $this->smarty->assign('name', 'Doom Guy');
+    }
+
+    public function action(): void
+    {
+        try {
+            $this->smarty->display($this->template);
+        } catch (\SmartyException $e) {
+        } catch (\Exception $e) {
+        }
+    }
+}
+
+

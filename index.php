@@ -11,7 +11,15 @@ use App\Core\{Router, Request};
 require 'vendor/autoload.php';
 require 'src/core/Bootstrap.php';
 
-require Router::load('src/core/Routes.php')
+$test = Router::load('src/core/Routes.php')
     ->direct(Request::uri());
+
+$test2 = new  $test;
+
+$test2->action();
+
+
+
+
 
 
