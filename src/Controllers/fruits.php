@@ -11,7 +11,6 @@ class fruits implements Controller
 
     public function __construct()
     {
-
         $this->template = 'fruits.tpl';
 
         $this->smarty = new \Smarty();

@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 
-class index implements Controller
+class home implements Controller
 {
     private \Smarty $smarty;
     private string $template;
@@ -11,8 +11,7 @@ class index implements Controller
 
     public function __construct()
     {
-
-        $this->template = 'index.tpl';
+        $this->template = 'home.tpl';
 
         $this->smarty = new \Smarty();
         $this->smarty->setTemplateDir('/mnt/c/mvc/src/smarty/templates');

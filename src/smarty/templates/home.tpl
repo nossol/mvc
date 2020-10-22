@@ -9,11 +9,11 @@
 <nav>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/about">About Page</a></li>
-        <li><a href="/fruits">Fruit Page</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/fruits">Fruit</a></li>
     </ul>
 </nav>
-<h1>INDEX VIEW</h1>
+<h1>HOME</h1>
 Hello, {$name}!
 </body>
 </html>

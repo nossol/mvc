@@ -14,7 +14,7 @@ require 'src/core/Bootstrap.php';
 $test = Router::load('src/core/Routes.php')
     ->direct(Request::uri());
 
-$test2 = new  $test;
+$test2 = new $test;
 
 $test2->action();
 

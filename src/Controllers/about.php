@@ -11,7 +11,6 @@ class about implements Controller
 
     public function __construct()
     {
-
         $this->template = 'about.tpl';
 
         $this->smarty = new \Smarty();
