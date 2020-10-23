@@ -1,35 +1,20 @@
 <?php
 
+
 namespace App\Controllers;
 
 
-class home implements Controller
+class home extends PageController
 {
-    private \Smarty $smarty;
-    private string $template;
-
-
-    public function __construct()
-    {
-        $this->template = 'home.tpl';
-
-        $this->smarty = new \Smarty();
-        $this->smarty->setTemplateDir('/mnt/c/mvc/src/smarty/templates');
-        $this->smarty->setCompileDir('/mnt/c/mvc/src/smarty/templates_c');
-        $this->smarty->setCacheDir('/mnt/c/mvc/src/smarty/cache');
-        $this->smarty->setConfigDir('/mnt/c/mvc/src/smarty/configs');
-
-        $this->smarty->assign('name', 'General McNugget');
-    }
-
     public function action(): void
     {
+        $this->smarty->assign('name', 'General McNugget');
+
         try {
-            $this->smarty->display($this->template);
+            $this->smarty->display('home.tpl');
         } catch (\SmartyException $e) {
         } catch (\Exception $e) {
         }
     }
 }
-
 

@@ -1,35 +1,19 @@
 <?php
 
+
 namespace App\Controllers;
 
 
-class fruits implements Controller
+class fruits extends PageController
 {
-    private \Smarty $smarty;
-    private string $template;
-
-
-    public function __construct()
-    {
-        $this->template = 'fruits.tpl';
-
-        $this->smarty = new \Smarty();
-        $this->smarty->setTemplateDir('/mnt/c/mvc/src/smarty/templates');
-        $this->smarty->setCompileDir('/mnt/c/mvc/src/smarty/templates_c');
-        $this->smarty->setCacheDir('/mnt/c/mvc/src/smarty/cache');
-        $this->smarty->setConfigDir('/mnt/c/mvc/src/smarty/configs');
-
-        $this->smarty->assign('name', 'Doom Guy');
-    }
-
     public function action(): void
     {
+        $this->smarty->assign('name', 'DOOM GUY');
+
         try {
-            $this->smarty->display($this->template);
+            $this->smarty->display('fruits.tpl');
         } catch (\SmartyException $e) {
         } catch (\Exception $e) {
         }
     }
 }
-
-
