@@ -9,8 +9,8 @@ error_reporting(E_ALL);
 
 use App\Core\{Router, Request};
 
-require 'vendor/autoload.php';
-require 'src/core/Bootstrap.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/src/Core/Bootstrap.php';
 
 
 $routerLoad = Router::load('src/core/Routes.php')
@@ -19,6 +19,9 @@ $routerLoad = Router::load('src/core/Routes.php')
 $routerAction = new $routerLoad;
 
 $routerAction->action();
+
+
+
 
 
 

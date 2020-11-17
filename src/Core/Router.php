@@ -1,11 +1,12 @@
 <?php
 
-namespace App\core;
+namespace App\Core;
 
 use Exception;
 
-class Router {
 
+class Router
+{
     protected $routes = [];
 
     public static function load($file)

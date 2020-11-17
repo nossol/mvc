@@ -1,16 +1,15 @@
 <?php
 
+namespace App\Controller;
 
-namespace App\Controllers;
 
-
-class fruits extends PageController
+class Fruits extends PageController
 {
     public function action(): void
     {
         $this->smarty->assign('headline', 'FRUITS');
         $this->smarty->assign('info', 'Eat more');
-        $this->smarty->assign('name', 'apples');
+        $this->smarty->assign('name', 'apples!');
 
         try {
             $this->smarty->display('layout.tpl');

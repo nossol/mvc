@@ -1,10 +1,9 @@
 <?php
 
+namespace App\Controller;
 
-namespace App\Controllers;
 
-
-class about extends PageController
+class About extends PageController
 {
     public function action(): void
     {
@@ -13,7 +12,7 @@ class about extends PageController
         $this->smarty->assign('name', 'Nexus');
 
         try {
-            $this->smarty->display('layout.tpl');
+            $this->smarty->display('about.tpl');
         } catch (\SmartyException $e) {
         } catch (\Exception $e) {
         }
