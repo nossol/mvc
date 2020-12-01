@@ -2,17 +2,17 @@
 
 namespace App\Controller;
 
+use App\Service\ViewInterface;
 use App\Service\View;
-use App\Service\ViewController;
 
 
 class About implements Controller
 {
-    private View $view;
+    private ViewInterface $view;
 
     public function __construct()
     {
-        $this->view = new ViewController();
+        $this->view = new View();
     }
 
     public function action(): void

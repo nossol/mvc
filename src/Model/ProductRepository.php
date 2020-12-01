@@ -5,6 +5,9 @@ namespace App\Model;
 
 class ProductRepository
 {
+    private array $productList;
+
+
     public function getProductList(): array
     {
         $productJson = file_get_contents('model.json');
@@ -14,7 +17,7 @@ class ProductRepository
         return $decodedProductList;
     }
 
-    public function getProduct()
+    public function getProduct($id)
     {
 
     }

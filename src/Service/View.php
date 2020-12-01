@@ -3,12 +3,38 @@
 
 namespace App\Service;
 
-
-interface View
+class View implements ViewInterface
 {
-    public function addTemplate(string $template): void;
+    private \Smarty  $smarty;
+    private string $template;
 
-    public function addTlpParam(string $name, $value): void;
+    public function __construct()
+    {
+        $this->smarty = new \Smarty();
+        $this->smarty->setTemplateDir('/mnt/c/mvc/src/View/templates');
+        $this->smarty->setCompileDir('/mnt/c/mvc/src/smarty/templates_c');
+        $this->smarty->setCacheDir('/mnt/c/mvc/src/smarty/cache');
+        $this->smarty->setConfigDir('/mnt/c/mvc/src/smarty/configs');
+    }
 
-    public function display(): void;
+    public function addTemplate(string $template):void
+    {
+        $this->template = $template;
+    }
+
+    public function addTlpParam(string $name, $value): void
+    {
+        $this->smarty->assign($name, $value);
+    }
+
+    public function display(): void
+    {
+        try {
+            $this->smarty->display($this->template);
+        } catch (\SmartyException $e) {
+            // TODO:Debug
+            var_dump($e);
+        } catch (\Exception $e) {
+        }
+    }
 }

@@ -3,18 +3,18 @@
 namespace App\Controller;
 
 use App\Model\ProductRepository;
-use App\Service\ViewController;
 use App\Service\View;
+use App\Service\ViewInterface;
 
 
 class Products implements Controller
 {
-    private View $view;
+    private ViewInterface $view;
     private ProductRepository $ProductRepository;
 
     public function __construct()
     {
-        $this->view = new ViewController();
+        $this->view = new View();
         $this->ProductRepository = new ProductRepository();
     }
 
