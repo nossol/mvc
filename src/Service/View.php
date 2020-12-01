@@ -32,8 +32,6 @@ class View implements ViewInterface
         try {
             $this->smarty->display($this->template);
         } catch (\SmartyException $e) {
-            // TODO:Debug
-            var_dump($e);
         } catch (\Exception $e) {
         }
     }
