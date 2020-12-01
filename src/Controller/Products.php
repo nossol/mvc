@@ -3,29 +3,29 @@
 namespace App\Controller;
 
 use App\Model\ProductRepository;
+use App\Service\ViewController;
+use App\Service\View;
 
 
-class Products extends PageController
+class Products implements Controller
 {
+    private View $view;
     private ProductRepository $ProductRepository;
 
     public function __construct()
     {
-        parent::__construct();
+        $this->view = new ViewController();
         $this->ProductRepository = new ProductRepository();
     }
 
     public function action(): void
     {
-        $this->smarty->assign('headline', 'PRODUCTS');
-        $this->smarty->assign('info', 'Product Overview');
-        $this->smarty->assign('name', 'Every Product!');
-        $this->smarty->assign('myProducts', $this->ProductRepository->getList());
-
-        try {
-            $this->smarty->display('products.tpl');
-        } catch (\SmartyException $e) {
-        } catch (\Exception $e) {
-        }
+        $this->view->addTemplate('products.tpl');
+        $this->view->addTlpParam('headline', 'Products');
+        $this->view->addTlpParam('info', 'Every Product');
+        $this->view->addTlpParam('name', 'Complete List:');
+        $this->view->addTlpParam('myProducts', $this->ProductRepository->getProductList());
+        $this->view->display();
     }
 }
+

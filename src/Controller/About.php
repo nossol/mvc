@@ -2,21 +2,26 @@
 
 namespace App\Controller;
 
+use App\Service\View;
+use App\Service\ViewController;
 
-class About extends PageController
+
+class About implements Controller
 {
+    private View $view;
+
+    public function __construct()
+    {
+        $this->view = new ViewController();
+    }
+
     public function action(): void
     {
-        $this->smarty->assign('headline', 'ABOUT');
-        $this->smarty->assign('info', 'Our Culture at');
-        $this->smarty->assign('name', 'Nexus');
-
-        try {
-            $this->smarty->display('about.tpl');
-        } catch (\SmartyException $e) {
-        } catch (\Exception $e) {
-        }
+        $this->view->addTemplate('about.tpl');
+        $this->view->addTlpParam('headline', 'About');
+        $this->view->addTlpParam('info', 'We are');
+        $this->view->addTlpParam('name', 'Nexus');
+        $this->view->display();
     }
 }
-
 

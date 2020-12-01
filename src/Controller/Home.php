@@ -2,20 +2,26 @@
 
 namespace App\Controller;
 
+use App\Service\View;
+use App\Service\ViewController;
 
-class Home extends PageController
+
+class Home implements Controller
 {
+    private View $view;
+
+    public function __construct()
+    {
+        $this->view = new ViewController();
+    }
+
     public function action(): void
     {
-        $this->smarty->assign('headline', 'HOME', );
-        $this->smarty->assign('info', 'Hello,', );
-        $this->smarty->assign('name', 'General McNugget!');
-
-        try {
-            $this->smarty->display('layout.tpl');
-        } catch (\SmartyException $e) {
-        } catch (\Exception $e) {
-        }
+        $this->view->addTemplate('layout.tpl');
+        $this->view->addTlpParam('headline', 'Home');
+        $this->view->addTlpParam('info', 'Welcome');
+        $this->view->addTlpParam('name', 'User');
+        $this->view->display();
     }
 }
 
