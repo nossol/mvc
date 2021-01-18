@@ -1,11 +1,22 @@
 {extends file="layout.tpl"}
 
 {block name=body}
-    {foreach $myProducts as $product}
+    {foreach $allProducts as $product}
         <li>
-            {$product.productname}
-            {$product.description}
+            <a href="/?page=productdetails" >{$product.productname}</a>
         </li>
     {/foreach}
+    <br>
+    {$getProduct}
+    <br>
+    <li>
+        {$singleProduct.id},
+        {$singleProduct.productname},
+        {$singleProduct.description}
+    </li>
+    <br>
+    {$product}
+    <br>
+    {$hasProduct}
 {/block}
 

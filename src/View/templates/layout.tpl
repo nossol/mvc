@@ -10,10 +10,6 @@
     <h1>{$headline}</h1>
     {$info}
     <br>
-    <br>
-    {$name}
-    <br>
-    <br>
     {block name=body}{/block}
 </body>
 </html>

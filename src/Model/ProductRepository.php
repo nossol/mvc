@@ -5,25 +5,33 @@ namespace App\Model;
 
 class ProductRepository
 {
-    private array $productList;
-
+    private array $decodedProductList;
 
     public function getProductList(): array
     {
         $productJson = file_get_contents('model.json');
 
-        $decodedProductList = json_decode($productJson, true);
+        $this->decodedProductList = json_decode($productJson, true);
 
-        return $decodedProductList;
+        return $this->decodedProductList;
     }
 
-    public function getProduct($id)
+    public function getProduct(int $id): array
     {
-
+        foreach ($this->decodedProductList as $object) {
+            if ($id === $object['id']) {
+                return $object;
+            }
+        }
     }
 
-    public function hasProduct()
+    public function hasProduct(int $id): bool
     {
-
+        foreach ($this->decodedProductList as $object) {
+            if ($id === $object['id']) {
+                return true;
+            }
+        }
+        return false;
     }
 }

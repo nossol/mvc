@@ -2,17 +2,17 @@
 
 namespace App\Controller;
 
-use App\Service\ViewInterface;
 use App\Service\View;
-
+use App\Service\Container;
 
 class Home implements Controller
 {
-    private ViewInterface $view;
+    private View $view;
+    public const ROUTE = 'home';
 
-    public function __construct()
+    public function __construct(Container $container)
     {
-        $this->view = new View();
+        $this->view = $container->get(View::class);
     }
 
     public function action(): void
@@ -20,8 +20,6 @@ class Home implements Controller
         $this->view->addTemplate('layout.tpl');
         $this->view->addTlpParam('headline', 'Home');
         $this->view->addTlpParam('info', 'Welcome');
-        $this->view->addTlpParam('name', 'User');
-        $this->view->display();
     }
 }
 
