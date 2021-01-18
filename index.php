@@ -21,11 +21,10 @@ $container = new Container();
 $container->set(View::class, new View());
 
 $controller = new ControllerProvider();
-$page = null;
+$page = 'home';
 if (!empty($_GET['page'])) {
     $page = $_GET['page'];
 }
-
 
 $controllerList = $controller->getList();
 

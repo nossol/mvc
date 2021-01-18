@@ -6,7 +6,7 @@ namespace App\Service;
 class View implements ViewInterface
 {
     private \Smarty  $smarty;
-    private string $template;
+    private string $template = '';
 
     public function __construct()
     {
@@ -29,10 +29,12 @@ class View implements ViewInterface
 
     public function display(): void
     {
-        try {
-            $this->smarty->display($this->template);
-        } catch (\SmartyException $e) {
-        } catch (\Exception $e) {
-        }
+        $this->smarty->display($this->template);
+
+//        try {
+//            $this->smarty->display($this->template);
+//        } catch (\SmartyException $e) {
+//        } catch (\Exception $e) {
+//        }
     }
 }
