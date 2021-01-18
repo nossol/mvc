@@ -31,7 +31,6 @@ $controllerList = $controller->getList();
 foreach ($controllerList as $controller) {
     if (strtolower($controller::ROUTE) === $page) {
         $controller = new $controller($container, $productRepository);
-
         $controller->action();
     }
 }
