@@ -29,12 +29,10 @@ class View implements ViewInterface
 
     public function display(): void
     {
-        $this->smarty->display($this->template);
-
-//        try {
-//            $this->smarty->display($this->template);
-//        } catch (\SmartyException $e) {
-//        } catch (\Exception $e) {
-//        }
+        try {
+            $this->smarty->display($this->template);
+        } catch (\SmartyException $e) {
+        } catch (\Exception $e) {
+        }
     }
 }

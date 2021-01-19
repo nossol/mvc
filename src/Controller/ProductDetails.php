@@ -23,10 +23,10 @@ class ProductDetails implements Controller
 
     public function action(): void
     {
-        $this->view->addTemplate('layout.tpl');
+        $this->view->addTemplate('productDetails.tpl');
         $this->view->addTlpParam('headline', 'Product Details');
         $this->view->addTlpParam('info', 'All infos about your product:');
-        $this->view->addTlpParam('getProduct', 'get product:');
-//        $this->view->addTlpParam('singleProduct', $this->productRepository->getProduct(2));
+        $this->view->addTlpParam('allProducts', $this->productRepository->getProductList());
+        $this->view->addTlpParam('singleProduct', $this->productRepository->getProduct());
     }
 }
