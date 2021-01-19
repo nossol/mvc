@@ -5,7 +5,7 @@ namespace App\Model;
 
 class ProductRepository
 {
-    private array $decodedProductList;
+    private array $decodedProductList = [];
 
     public function getProductList(): array
     {
@@ -16,8 +16,15 @@ class ProductRepository
         return $this->decodedProductList;
     }
 
-    public function getProduct(int $id): array
+    public function getProduct(): array
     {
+        $id = $_GET['pid'];
+
+        if($id === NULL) {
+            $id = 4;
+        } else {
+            $id = (int)$id;
+        }
         foreach ($this->decodedProductList as $object) {
             if ($id === $object['id']) {
                 return $object;
