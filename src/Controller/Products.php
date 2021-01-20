@@ -24,10 +24,8 @@ class Products implements Controller
     {
         $this->view->addTemplate('products.tpl');
         $this->view->addTlpParam('headline', 'Products');
-        $this->view->addTlpParam('info', 'get product list:');
+        $this->view->addTlpParam('info', 'Product list:');
         $this->view->addTlpParam('allProducts', $this->productRepository->getProductList());
-        $this->view->addTlpParam('getProduct', 'get product:');
-        $this->view->addTlpParam('singleProduct', $this->productRepository->getProduct());
         $this->view->addTlpParam('product', 'has product?');
         $this->view->addTlpParam('hasProduct', $this->productRepository->hasProduct(4));
     }
