@@ -18,11 +18,11 @@ class ProductRepository
 
     public function getProduct(): array
     {
+        $id = (int) $_GET['pid'];
+
         if (!isset($_GET['pid'])) {
             throw new \Exception('No Product selected.');
         }
-
-        $id = (int) $_GET['pid'];
 
         foreach ($this->decodedProductList as $object) {
             if ($id === $object['id']) {
