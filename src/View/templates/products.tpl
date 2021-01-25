@@ -7,8 +7,6 @@
         </li>
     {/foreach}
     <br>
-    {$product}
-    <br>
-    {$hasProduct}
+    has product? {$hasProduct}
 {/block}
 
