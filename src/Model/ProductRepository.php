@@ -8,11 +8,10 @@ use App\Model\Mapper\ProductMapper;
 
 class ProductRepository
 {
-    /**
-     * @var ProductDataTransferObject []   //nowdoc
-     */
+//    /**
+//     * @var ProductDataTransferObject []   //nowdoc
+//     */
     private array $decodedProductList;
-    private ProductMapper $productMapper;
 
     public function __construct()
     {
@@ -21,10 +20,8 @@ class ProductRepository
         $decodedProductList = json_decode($data, true);
         $productMapper = new ProductMapper();
 
-        $this->productMapper = $productMapper;
-
         foreach ($decodedProductList as $product) {
-            $this->decodedProductList[(int)$product['id']] = $this->productMapper->map($product);
+            $this->decodedProductList[(int)$product['id']] = $productMapper->map($product);
         }
     }
 
