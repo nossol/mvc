@@ -23,10 +23,15 @@ class ProductDetails implements Controller
 
     public function action(): void
     {
+        if (!isset($_GET['pid'])) {
+            throw new \Exception('No Product selected.');
+        }
+        $id = (int) $_GET['pid'];
+
         $this->view->addTemplate('productDetails.tpl');
         $this->view->addTlpParam('headline', 'Product Details');
         $this->view->addTlpParam('info', 'All infos about your product:');
-        $this->view->addTlpParam('allProducts', $this->productRepository->getProductList());
-        $this->view->addTlpParam('singleProduct', $this->productRepository->getProduct());
+        $this->view->addTlpParam('allProducts', $this->productRepository->getList());
+        $this->view->addTlpParam('singleProduct', $this->productRepository->get($id));
     }
 }
