@@ -3,29 +3,40 @@
 namespace App\Model;
 
 
+use App\Model\Dto\ProductDataTransferObject;
+use App\Model\Mapper\ProductMapper;
+
 class ProductRepository
 {
-    private array $decodedProductList = [];
+    /**
+     * @var ProductDataTransferObject []   //nowdoc
+     */
+    private array $decodedProductList;
+    private ProductMapper $productMapper;
 
-    public function getProductList(): array
+    public function __construct()
     {
-        $productJson = file_get_contents('model.json');
+        $url = dirname(__DIR__, 2) . '/model.json';
+        $data = file_get_contents($url);
+        $decodedProductList = json_decode($data, true);
+        $productMapper = new ProductMapper();
 
-        $this->decodedProductList = json_decode($productJson, true);
+        $this->productMapper = $productMapper;
 
+        foreach ($decodedProductList as $product) {
+            $this->decodedProductList[(int)$product['id']] = $this->productMapper->map($product);
+        }
+    }
+
+    public function getList(): array
+    {
         return $this->decodedProductList;
     }
 
-    public function getProduct(): array
+    public function get(int $id): ProductDataTransferObject
     {
-        $id = (int) $_GET['pid'];
-
-        if (!isset($_GET['pid'])) {
-            throw new \Exception('No Product selected.');
-        }
-
         foreach ($this->decodedProductList as $object) {
-            if ($id === $object['id']) {
+            if ($id === $object->getId()) {
                 return $object;
             }
         }
@@ -34,7 +45,8 @@ class ProductRepository
     public function hasProduct(int $id): bool
     {
         foreach ($this->decodedProductList as $object) {
-            if ($id === $object['id']) {
+
+            if ($id === $object->getId()) {
                 return true;
             }
         }
