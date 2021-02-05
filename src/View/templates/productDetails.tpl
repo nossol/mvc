@@ -2,10 +2,10 @@
 
 {block name=body}
     <br>
-    Product Id: {$smarty.get.pid}
+    Id: {$smarty.get.pid}
     <br>
-    Productname: {$singleProduct.productname}
+    Name: {$singleProduct->getName()}
     <br>
-    Product description: {$singleProduct.description}
+    Description: {$singleProduct->getDescription()}
 {/block}
 
