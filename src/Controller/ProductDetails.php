@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Model\ProductRepository;
@@ -12,7 +11,6 @@ class ProductDetails implements Controller
 {
     private View $view;
     private ProductRepository $productRepository;
-
     public const ROUTE = 'productDetails';
 
     public function __construct(Container $container, ProductRepository $productRepository)
@@ -23,15 +21,17 @@ class ProductDetails implements Controller
 
     public function action(): void
     {
-        if (!isset($_GET['pid'])) {
-            throw new \Exception('No Product selected.');
-        }
         $id = (int) $_GET['pid'];
 
-        $this->view->addTemplate('productDetails.tpl');
-        $this->view->addTlpParam('headline', 'Product Details');
-        $this->view->addTlpParam('info', 'All infos about your product:');
-        $this->view->addTlpParam('allProducts', $this->productRepository->getList());
-        $this->view->addTlpParam('singleProduct', $this->productRepository->get($id));
+        if (isset($_GET['pid']) && $this->productRepository->hasProduct($id)) {
+            $this->view->addTemplate('productDetails.tpl');
+            $this->view->addTlpParam('headline', 'Product Details');
+            $this->view->addTlpParam('info', 'All infos about your product:');
+            $this->view->addTlpParam('singleProduct', $this->productRepository->get($id));
+        } else {
+            $this->view->addTemplate('404.tpl');
+            $this->view->addTlpParam('headline', 'ERROR 404');
+            $this->view->addTlpParam('info', 'Product not found');
+        }
     }
 }
