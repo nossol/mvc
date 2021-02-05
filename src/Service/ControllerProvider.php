@@ -7,6 +7,7 @@ use App\Controller\Home;
 use App\Controller\About;
 use App\Controller\Products;
 use App\Controller\ProductDetails;
+use App\Controller\Error;
 
 class ControllerProvider
 {
@@ -16,7 +17,8 @@ class ControllerProvider
             Home::class,
             About::class,
             Products::class,
-            ProductDetails::class
+            ProductDetails::class,
+            Error::class,
         ];
     }
 }
