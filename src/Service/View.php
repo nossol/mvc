@@ -22,6 +22,7 @@ class View implements ViewInterface
         $this->template = $template;
     }
 
+
     public function addTlpParam(string $name, $value): void
     {
         $this->smarty->assign($name, $value);
