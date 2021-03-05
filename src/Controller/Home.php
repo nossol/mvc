@@ -20,6 +20,9 @@ class Home implements Controller
         $this->view = $container->get(View::class);
     }
 
+    /**
+     *
+     */
     public function action(): void
     {
         $this->view->addTemplate('layout.tpl');

@@ -25,6 +25,9 @@ class ProductDetails implements Controller
         $this->productRepository = $productRepository;
     }
 
+    /**
+     *
+     */
     public function action(): void
     {
         $id = 0;

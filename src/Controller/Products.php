@@ -26,6 +26,9 @@ class Products implements Controller
         $this->productRepository = $productRepository;
     }
 
+    /**
+     *
+     */
     public function action(): void
     {
         $this->view->addTemplate('products.tpl');
