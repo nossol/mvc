@@ -67,10 +67,9 @@ class Login implements BackendController
      */
     private function redirectToDashboard():void
     {
-        $uri = trim(dirname($_SERVER['PHP_SELF']), '/\\');
         $extra1 = 'index.php?page='.Dashboard::ROUTE;
         $extra2 = '&admin=true';
-        header("Location: $uri$extra1$extra2");
+        header("Location: $extra1$extra2");
         exit;
     }
 }
