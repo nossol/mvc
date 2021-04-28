@@ -1,10 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 
-namespace App\Controller;
+namespace App\Controller\Frontend;
 
 use App\Service\Container;
 use App\Service\View;
+use App\Controller\Controller;
 
 
 class Error implements Controller

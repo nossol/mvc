@@ -1,10 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Frontend;
 
-use App\Model\ProductRepository;
-use App\Service\Container;
 use App\Service\View;
+
+use App\Service\Container;
+use App\Controller\Controller;
+use App\Model\ProductRepository;
 
 
 class Products implements Controller
@@ -17,13 +19,12 @@ class Products implements Controller
     /**
      * Products constructor.
      * @param Container $container
-     * @param ProductRepository $productRepository
      * @throws \Exception
      */
-    public function __construct(Container $container, ProductRepository $productRepository)
+    public function __construct(Container $container)
     {
         $this->view = $container->get(View::class);
-        $this->productRepository = $productRepository;
+        $this->productRepository = $container->get(ProductRepository::class);
     }
 
     /**

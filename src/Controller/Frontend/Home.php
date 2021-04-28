@@ -1,9 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\Controller;
+
+namespace App\Controller\Frontend;
 
 use App\Service\View;
 use App\Service\Container;
+use App\Controller\Controller;
+
 
 class Home implements Controller
 {
