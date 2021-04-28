@@ -54,12 +54,12 @@ class Login implements BackendController
                     $_SESSION['loggedin'] = true;
                     $this->redirectToDashboard();
                 }
-                $this->view->addTlpParam('error', 'Invalid Username or Password');
+                $this->view->addTlpParam('error', 'Invalid Username or Password!');
             }
         }
         $this->view->addTemplate('login.tpl');
         $this->view->addTlpParam('headline', 'Login');
-        $this->view->addTlpParam('info', 'Please enter your username and password:');
+        $this->view->addTlpParam('info', 'Please enter your Username and Password:');
     }
 
     /**
