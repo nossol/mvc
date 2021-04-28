@@ -15,4 +15,6 @@ class ControllerProviderTest extends TestCase
         self::assertIsArray($controller);
         self::assertCount(5, $controller);
     }
+
+    // need end to end test
 }

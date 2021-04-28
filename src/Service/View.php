@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 
 namespace App\Service;
@@ -15,10 +15,10 @@ class View implements ViewInterface
     public function __construct()
     {
         $this->smarty = new \Smarty();
-        $this->smarty->setTemplateDir('/home/developer/mvc-master/src/View/templates');
-        $this->smarty->setCompileDir('/home/developer/mvc-master/src/smarty/templates_c');
-        $this->smarty->setCacheDir('/home/developer/mvc-master/src/smarty/cache');
-        $this->smarty->setConfigDir('/home/developer/mvc-master/src/smarty/configs');
+        $this->smarty->setTemplateDir('/home/developer/mvc1/src/View/templates');
+        $this->smarty->setCompileDir('/home/developer/mvc1/src/smarty/templates_c');
+        $this->smarty->setCacheDir('/home/developer/mvc1/src/smarty/cache');
+        $this->smarty->setConfigDir('/home/developer/mvc1/src/smarty/configs');
     }
 
     /**

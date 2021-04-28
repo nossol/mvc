@@ -29,7 +29,7 @@ class ProductDetailsTest extends TestCase
 
     public function testActionWhereProductExists(): void
     {
-        $id = $_GET['pid'] = 1;
+        $id = $_GET['pid'] = 1; //TODO: format
 
         $this->productDetails->action();
 
@@ -55,7 +55,7 @@ class ProductDetailsTest extends TestCase
         self::assertSame('Product not found', $params['info']);
     }
 
-    public function testActionWhereProductIdNotExists(): void
+    public function testActionWhereParamsProductIdNotExists(): void
     {
         $this->productDetails->action();
 
@@ -65,7 +65,6 @@ class ProductDetailsTest extends TestCase
         self::assertCount(2, $params);
         self::assertSame('ERROR 404', $params['headline']);
         self::assertSame('Product not found', $params['info']);
-
     }
 
     protected function tearDown(): void

@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class ProductDataTransferObjectTest extends TestCase
 {
-
     public function testInitialisation(): void
     {
         $module = new ProductDataTransferObject();

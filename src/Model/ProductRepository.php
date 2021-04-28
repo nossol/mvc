@@ -1,10 +1,11 @@
-<?php
+<?php declare(strict_types=1);
+
 
 namespace App\Model;
 
-
 use App\Model\Dto\ProductDataTransferObject;
 use App\Model\Mapper\ProductMapper;
+
 
 class ProductRepository
 {
