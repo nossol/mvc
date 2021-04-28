@@ -9,4 +9,7 @@
         <input type="password" id="pwd" name="password">
         <input type="Submit" value="Login" />
     </form>
+    {if isset($error)}
+        {$error}
+    {/if}
 {/block}
